@@ -1,0 +1,11 @@
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: nestjs
+    ports:
+      - 5432:5432

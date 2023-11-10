@@ -72,6 +72,7 @@ export class AuthService {
         hashedRefreshToken: null,
       },
     });
+    return true;
   }
 
   async refreshTokens(userId: number, refreshToken: string) {
@@ -81,7 +82,7 @@ export class AuthService {
       },
     });
 
-    if (!user) {
+    if (!user || !user.hashedRefreshToken) {
       throw new ForbiddenException('Access Denied!');
     }
 
